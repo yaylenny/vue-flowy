@@ -47,6 +47,8 @@
 </script>
 <template lang="pug">
   .flow-item( @click="onClick")
+    .item-toggle( @click="")
+      span.toggle
     .item-bullet( @click="onBullet")
       span.bullet
     .item-title

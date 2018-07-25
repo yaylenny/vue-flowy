@@ -1,6 +1,7 @@
 <script>
   import FlowItem from "../components/FlowItem.vue";
 
+  let FID=0;
 
   export default{
     props: {
@@ -10,7 +11,8 @@
       return {
         items: [],
         active: 0,
-        root: 0
+        root: 0,
+        ufid: 0
       };
     },
     components:{
@@ -19,6 +21,14 @@
     methods:{
       activateItem( item ){
         this.active=item.id;
+      },
+      createItem( parent ){
+        let item={
+          parent,
+          fid: ++this.fuid,
+          index: this.items.length,
+        };
+        this.items.push( item );
       },
       onFocus( e, item ){
         this.activateItem( item );
@@ -45,7 +55,11 @@
     computed:{
       flowData(){
         if( this.items.length ){
-
+          let items=this.items.slice();
+          items.sort(( a, b  )=>{
+            return a.index - b.index;
+          });
+          return items;
         }
         else{
           return [
