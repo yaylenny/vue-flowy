@@ -1,0 +1,57 @@
+
+
+.vue-flow{
+
+  .flow-toolbar, .toolbar-right, .toolbar-left, .flow-item, .item-bullet{
+    display: flex;
+    align-items: center;
+  }
+  .flow-toolbar{
+    padding: 1rem 0;
+    border-bottom: 1px solid #dbdbdb;
+    .toolbar-right, .toolbar-left{
+      flex: 1;
+    }
+    .toolbar-right{
+      justify-content: flex-end;
+    }
+  }
+  .flow-items{
+    padding: 1.5rem;
+  }
+  .flow-item{
+    padding: .5rem 0;
+    &.item-active{
+      background: #eee;
+    }
+    .item-bullet{
+      flex: 0 0 32px;
+      justify-content: center;
+      .bullet{
+        width: 4px;
+        height: 4px;
+        background: #444;
+        border-radius: 50%;
+        box-shadow: 0 0 1px 7px #bbb;
+        &:hovered{
+          box-shadow: 0 0 1px 7px #999;
+        }
+      }
+    }
+    input[ type="text"]{
+      &, &:focus, &:active{
+        border: none!important;
+        box-shadow: none;
+        background: none!important;
+        outline: 0;
+        color: rgba( 40, 40, 40, .87 );
+        font-family: Arial;
+        font-weight: 200;
+      }
+      font-size: 1.5rem;
+    }
+  }
+  .flow-logo{
+    color: rgb(59, 75, 87);
+  }
+}
